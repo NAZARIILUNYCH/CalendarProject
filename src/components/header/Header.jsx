@@ -1,7 +1,5 @@
 import React from 'react';
-
 import { months } from '../../utils/dateUtils.js';
-
 import './header.scss';
 
 const Header = () => {
@@ -18,7 +16,7 @@ const Header = () => {
         <button className="icon-button navigation__nav-icon">
           <i className="fas fa-chevron-right"></i>
         </button>
-        <span className="navigation__displayed-month"></span>
+        <span className="navigation__displayed-month">{months[0]}</span>
       </div>
     </header>
   );
