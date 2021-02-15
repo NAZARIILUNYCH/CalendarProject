@@ -5,11 +5,20 @@ import { getWeekStartDate, generateWeekRange } from '../src/utils/dateUtils.js';
 import './common.scss';
 
 const App = () => {
-  const weekDates = generateWeekRange(getWeekStartDate(new Date()));
+  let weekDates;
+  const [currentDate, setCurrentDate] = useState(new Date());
+
+  const handleNextWeek = () =>
+    setCurrentDate(new Date(currentDate.setDate(currentDate.getDate() + 7)));
+
+  const handlePrevWeek = () =>
+    setCurrentDate(new Date(currentDate.setDate(currentDate.getDate() - 7)));
+
+  weekDates = generateWeekRange(getWeekStartDate(currentDate));
 
   return (
     <>
-      <Header />
+      <Header nextWeek={handleNextWeek} prevWeek={handlePrevWeek} />
       <Calendar weekDates={weekDates} />
     </>
   );
