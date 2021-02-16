@@ -7,11 +7,21 @@ const Event = ({ height, marginTop, title, time }) => {
     marginTop,
   };
 
+  // const deleteEventHandler = status => status;
+
+  // const deleteBtn = <button className="delete-event-btn">+</button>;
+
   return (
-    <div style={eventStyle} className="event">
-      <div className="event__title">{title}</div>
-      <div className="event__time">{time}</div>
-    </div>
+    <>
+      {/* {deleteEventHandler ? deleteBtn : ''} */}
+      <div
+        style={eventStyle}
+        className="event" //onClick={() => deleteEventHandler(false)}
+      >
+        <div className="event__title">{title}</div>
+        <div className="event__time">{time}</div>
+      </div>
+    </>
   );
 };
 

@@ -8,7 +8,7 @@ import './common.scss';
 const App = () => {
   let weekDates;
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [modalIsShown, setModalIsShown] = useState(false);
+  const [isModalShown, setIsModalShown] = useState(false);
 
   const handleNextWeek = () =>
     setCurrentDate(new Date(currentDate.setDate(currentDate.getDate() + 7)));
@@ -18,7 +18,7 @@ const App = () => {
 
   const handleToday = () => setCurrentDate(new Date());
 
-  const modalVisibility = modalIsShown ? <Modal setModalIsShown={setModalIsShown} /> : '';
+  const modalVisibility = isModalShown ? <Modal setIsModalShown={setIsModalShown} /> : '';
 
   weekDates = generateWeekRange(getWeekStartDate(currentDate));
 
@@ -30,7 +30,7 @@ const App = () => {
         prevWeek={handlePrevWeek}
         today={handleToday}
         month={currentDate.getMonth()}
-        setModalIsShown={setModalIsShown}
+        setIsModalShown={setIsModalShown}
       />
       <Calendar weekDates={weekDates} />
     </>
