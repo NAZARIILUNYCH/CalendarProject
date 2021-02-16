@@ -2,13 +2,13 @@ import React from 'react';
 import { months } from '../../utils/dateUtils.js';
 import './header.scss';
 
-const Header = ({ nextWeek, prevWeek, today, month }) => {
+const Header = ({ nextWeek, prevWeek, today, month, setModalIsShown }) => {
   return (
     <header className="header">
-      <button className="button create-event-btn">
-        <i className="fas fa-plus create-event-btn__icon"></i>Create
-      </button>
       <div className="navigation">
+        <button className="button create-event-btn" onClick={() => setModalIsShown(true)}>
+          <i className="fas fa-plus create-event-btn__icon"></i>Create
+        </button>
         <button className="navigation__today-btn button" onClick={today}>
           Today
         </button>
