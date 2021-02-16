@@ -14,11 +14,18 @@ const App = () => {
   const handlePrevWeek = () =>
     setCurrentDate(new Date(currentDate.setDate(currentDate.getDate() - 7)));
 
+  const handleToday = () => setCurrentDate(new Date());
+
   weekDates = generateWeekRange(getWeekStartDate(currentDate));
 
   return (
     <>
-      <Header nextWeek={handleNextWeek} prevWeek={handlePrevWeek} />
+      <Header
+        nextWeek={handleNextWeek}
+        prevWeek={handlePrevWeek}
+        today={handleToday}
+        month={currentDate.getMonth()}
+      />
       <Calendar weekDates={weekDates} />
     </>
   );
