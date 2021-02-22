@@ -1,40 +1,45 @@
-import React, { useState } from 'react';
-import Header from './components/header/Header.jsx';
-import Calendar from './components/calendar/Calendar.jsx';
-import Modal from './components/modal/Modal';
-import { getWeekStartDate, generateWeekRange } from '../src/utils/dateUtils.js';
-import './common.scss';
+import React, { useState } from "react";
+import Header from "./components/header/Header.jsx";
+import Calendar from "./components/calendar/Calendar.jsx";
+import { getWeekStartDate, generateWeekRange } from "../src/utils/dateUtils.js";
+import "./common.scss";
 
 const App = () => {
   let weekDates;
-  const [currentDate, setCurrentDate] = useState(new Date());
   const [isModalShown, setIsModalShown] = useState(false);
+  const [currentDate, setCurrentDate] = useState(new Date());
 
-  const handleNextWeek = () =>
+  const handleNextWeek = () => {
     setCurrentDate(new Date(currentDate.setDate(currentDate.getDate() + 7)));
+  };
 
-  const handlePrevWeek = () =>
+  const handlePrevWeek = () => {
     setCurrentDate(new Date(currentDate.setDate(currentDate.getDate() - 7)));
+  };
 
-  const handleToday = () => setCurrentDate(new Date());
-
-  const modalVisibility = isModalShown ? <Modal setIsModalShown={setIsModalShown} /> : '';
+  const handleTodayWeek = () => {
+    setCurrentDate(new Date());
+  };
 
   weekDates = generateWeekRange(getWeekStartDate(currentDate));
 
   return (
-    <>
-      {modalVisibility}
+    <div className="calendar__container">
       <Header
         nextWeek={handleNextWeek}
         prevWeek={handlePrevWeek}
-        today={handleToday}
+        todayWeek={handleTodayWeek}
+        weekDates={weekDates}
         month={currentDate.getMonth()}
+        year={currentDate.getFullYear()}
         setIsModalShown={setIsModalShown}
       />
-      <Calendar weekDates={weekDates} />
-    </>
+      <Calendar
+        weekDates={weekDates}
+        setIsModalShown={setIsModalShown}
+        isModalShown={isModalShown}
+      />
+    </div>
   );
 };
-
 export default App;

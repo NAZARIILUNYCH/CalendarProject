@@ -1,8 +1,9 @@
 .event {
-  font-size: 13px;
+  font-size: 12px;
+  top: 0;
   position: absolute;
   width: 90%;
-  background-color: cornflowerblue;
+  background-color: #000;
   z-index: 1;
   border-radius: 8px;
   padding: 8px;
@@ -18,14 +19,22 @@
 
   &:hover {
     font-weight: bold;
-    background-color: red;
+    background-color: grey;
   }
 }
 
 .delete-event-btn {
+  z-index: 1000;
+  position: relative;
+  top: -20px;
   margin-left: 80%;
   transform: rotate(45deg);
   cursor: pointer;
   border: none;
   border-radius: 50px;
+
+  &:hover {
+    background: #000;
+    color: #fff;
+  }
 }

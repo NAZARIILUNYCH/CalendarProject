@@ -7,9 +7,16 @@
 
 .create-event-btn {
     padding: 0 16px;
+    background: #000;
+    color: #fff;
 
     &__icon {
         margin-right: 8px;
+        color: #fff;
+    }
+
+    &:hover {
+        background: grey;
     }
 }
 
@@ -17,14 +24,28 @@
     &__today-btn {
         margin-left: 32px;
         padding: 0 16px;
+        background: #000;
+        color: #fff;
+
+        &:hover {
+            background: grey;
+        }
     }
 
     &__nav-icon {
         font-size: 16px;
         margin-left: 20px;
+
+        &:hover {
+            color: grey;
+        }
     }
 
     &__displayed-month {
         margin-left: 10px;
+    }
+
+    &__displayed-year {
+        font-weight: 700;
     }
 }

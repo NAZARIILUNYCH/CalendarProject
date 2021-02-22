@@ -64,6 +64,11 @@
     &__day-number {
         font-size: 22px;
     }
+
+    &__today {
+        color: red;
+        font-weight: 700;
+    }
 }
 
 .red-line {
