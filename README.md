@@ -18,4 +18,4 @@ The tech stack is:
 + Sass (Scss)
 + BEM methodology
 
-Author Nazar Lunych
+Author: Nazar Lunych
