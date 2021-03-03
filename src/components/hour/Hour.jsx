@@ -1,14 +1,10 @@
-import React, { useState, useEffect } from "react";
-import Event from "../event/Event";
-import { formatMins } from "../../../src/utils/dateUtils.js";
+/* eslint-disable import/no-unresolved */
+import React, { useState, useEffect } from 'react';
+import moment from 'moment';
+import Event from '../event/Event';
+import { formatMins } from '../../utils/dateUtils.js';
 
-const Hour = ({
-  dataHour,
-  hourEvents,
-  changeStatusEvent,
-  removeEvent,
-  momentLine,
-}) => {
+const Hour = ({ day, dataHour, hourEvents, changeStatusEvent, removeEvent }) => {
   const [minutes, setMinutes] = useState(new Date().getMinutes());
   const [hour, setHour] = useState(new Date().getHours());
 
@@ -26,19 +22,18 @@ const Hour = ({
     };
   });
 
+  const momentLine =
+    moment(day).format('MMMM DD YYYY') === moment(new Date()).format('MMMM DD YYYY');
+
   return (
     <div className="calendar__time-slot" data-time={dataHour + 1}>
-      {momentLine && dataHour == hour ? (
+      {momentLine && dataHour === hour ? (
         <div style={{ top: minutes }} className="red-line"></div>
       ) : null}
 
       {hourEvents.map(({ id, dateFrom, dateTo, title, status }) => {
-        const eventStart = `${dateFrom.getHours()}:${formatMins(
-          dateFrom.getMinutes()
-        )}`;
-        const eventEnd = `${dateTo.getHours()}:${formatMins(
-          dateTo.getMinutes()
-        )}`;
+        const eventStart = `${dateFrom.getHours()}:${formatMins(dateFrom.getMinutes())}`;
+        const eventEnd = `${dateTo.getHours()}:${formatMins(dateTo.getMinutes())}`;
 
         return (
           <Event

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import "./event.scss";
+import React, { useState } from 'react';
+import './event.scss';
 
 const Event = ({ height, marginTop, title, time, id, removeEvent }) => {
   const [isShownDeleteEventBtn, setIsShownDeleteEventBtn] = useState(false);
@@ -16,7 +16,7 @@ const Event = ({ height, marginTop, title, time, id, removeEvent }) => {
 
   return (
     <>
-      {isShownDeleteEventBtn ? deleteBtn : ""}
+      {isShownDeleteEventBtn ? deleteBtn : ''}
       <div
         style={eventStyle}
         className="event"

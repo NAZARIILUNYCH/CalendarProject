@@ -1,21 +1,11 @@
-import React from "react";
-import { months } from "../../utils/dateUtils";
-import "./header.scss";
+import React from 'react';
+import { months } from '../../utils/dateUtils';
+import './header.scss';
 
-const Header = ({
-  nextWeek,
-  prevWeek,
-  todayWeek,
-  month,
-  year,
-  setIsModalShown,
-}) => {
+const Header = ({ nextWeek, prevWeek, todayWeek, month, year, setIsModalShown }) => {
   return (
     <header className="header">
-      <button
-        className="button create-event-btn"
-        onClick={() => setIsModalShown(true)}
-      >
+      <button className="button create-event-btn" onClick={() => setIsModalShown(true)}>
         <i className="fas fa-plus create-event-btn__icon"></i>Create
       </button>
       <div className="navigation">
@@ -29,8 +19,7 @@ const Header = ({
           <i className="fas fa-chevron-right" onClick={nextWeek}></i>
         </button>
         <span className="navigation__displayed-month">
-          {months[month]}{" "}
-          <span className="navigation__displayed-year">{year}</span>
+          {months[month]} <span className="navigation__displayed-year">{year}</span>
         </span>
       </div>
     </header>

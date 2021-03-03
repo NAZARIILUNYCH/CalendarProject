@@ -1,11 +1,10 @@
-import React, { useState } from "react";
-import Header from "./components/header/Header.jsx";
-import Calendar from "./components/calendar/Calendar.jsx";
-import { getWeekStartDate, generateWeekRange } from "../src/utils/dateUtils.js";
-import "./common.scss";
+import React, { useState } from 'react';
+import Header from './components/header/Header.jsx';
+import Calendar from './components/calendar/Calendar.jsx';
+import { getWeekStartDate, generateWeekRange } from './utils/dateUtils.js';
+import './common.scss';
 
 const App = () => {
-  let weekDates;
   const [isModalShown, setIsModalShown] = useState(false);
   const [currentDate, setCurrentDate] = useState(new Date());
 
@@ -21,7 +20,7 @@ const App = () => {
     setCurrentDate(new Date());
   };
 
-  weekDates = generateWeekRange(getWeekStartDate(currentDate));
+  const weekDates = generateWeekRange(getWeekStartDate(currentDate));
 
   return (
     <div className="calendar__container">

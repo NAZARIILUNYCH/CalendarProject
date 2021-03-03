@@ -1,37 +1,38 @@
-import React, { useEffect, useState } from "react";
-import Navigation from "./../navigation/Navigation";
-import Week from "../week/Week";
-import Sidebar from "../sidebar/Sidebar";
-import { eventsFetching, updateEvent, removeEvent } from "../../gateway/events";
-import Modal from "../modal/Modal";
-import "./calendar.scss";
+/* eslint-disable import/no-unresolved */
+import React, { useEffect, useState } from 'react';
+import Navigation from '../navigation/Navigation';
+import Week from '../week/Week';
+import Sidebar from '../sidebar/Sidebar';
+import { eventsFetching, updateEvent, removeEvent } from '../../gateway/events';
+import Modal from '../modal/Modal';
+import './calendar.scss';
 
 const Calendar = ({ weekDates, isModalShown, setIsModalShown }) => {
   const [events, setEvents] = useState([]);
 
-  const request = () => {
+  const eventsList = () => {
     eventsFetching()
-      .then((events) => setEvents(events))
-      .catch((error) => alert(error.message));
+      .then(event => setEvents(event))
+      .catch(error => alert(error.message));
   };
 
-  const changeStatusEvent = (id) => {
-    const { status, ...event } = events.find((item) => item.id == id);
+  const changeStatusEvent = id => {
+    const { status, ...event } = events.find(item => item.id === id);
 
     const newEvents = {
       status: !status,
       ...event,
     };
 
-    updateEvent(id, newEvents).then(() => request());
+    updateEvent(id, newEvents).then(() => eventsList());
   };
 
-  const removeEventHandler = (id) => {
-    removeEvent(id).then(() => request());
+  const removeEventHandler = id => {
+    removeEvent(id).then(() => eventsList());
   };
 
   useEffect(() => {
-    request();
+    eventsList();
   }, []);
 
   return (
@@ -50,7 +51,7 @@ const Calendar = ({ weekDates, isModalShown, setIsModalShown }) => {
       </div>
       {isModalShown && (
         <Modal
-          request={request}
+          eventsList={eventsList}
           isModalShown={isModalShown}
           setIsModalShown={setIsModalShown}
         />
