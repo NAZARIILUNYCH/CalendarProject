@@ -10,8 +10,8 @@ Builds the app for production to the build folder.
 
 The tech stack is:
 
-React
-Webpack
++ React
++ Webpack
 ES6 syntax
 HTML5
 Flexbox
