@@ -10,7 +10,7 @@ Builds the app for production to the build folder.
 
 The tech stack is:
 
-React
+*React
 Webpack
 ES6 syntax
 HTML5
